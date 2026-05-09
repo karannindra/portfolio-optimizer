@@ -12,7 +12,7 @@ def download_prices(tickers, start_date, end_date):
         tickers,
         start=start_date,
         end=end_date
-    )["Close"]
+    )["Adj Close"]
 
     return data
 
