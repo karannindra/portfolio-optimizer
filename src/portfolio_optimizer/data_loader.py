@@ -15,3 +15,12 @@ def download_prices(tickers, start_date, end_date):
     )["Close"]
 
     return data
+
+def compute_returns(price_data):
+
+    returns = price_data.pct_change().dropna()
+
+    mean_returns = returns.mean() * 252
+    risk = returns.std() * np.sqrt(252)
+
+    return returns, mean_returns, risk
