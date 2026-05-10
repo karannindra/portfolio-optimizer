@@ -11,8 +11,9 @@ def download_prices(tickers, start_date, end_date):
     data = yf.download(
         tickers,
         start=start_date,
-        end=end_date
-    )["Adj Close"]
+        end=end_date,
+        auto_adjust=False
+    )["Close"]
 
     return data
 
