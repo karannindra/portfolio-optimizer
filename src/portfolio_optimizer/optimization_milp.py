@@ -1,13 +1,14 @@
 from scipy.optimize import linprog
 import numpy as np
 import pulp
+from portfolio_optimizer import config
 
 def milp_rebalancing(
     mean_returns,
     current_weights,
-    max_weight=0.35,
-    transaction_cost=0.001,
-    K=4
+    max_weight=config.MAX_WEIGHT,
+    transaction_cost=config.TRANSACTION_COST,
+    K=config.MAX_TRADES
 ):
 
     assets = list(mean_returns.index)

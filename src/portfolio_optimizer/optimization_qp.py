@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.optimize import minimize
+from portfolio_optimizer import config
 
 
 def portfolio_return(weights, mean_returns):
@@ -18,7 +19,7 @@ def negative_sharpe_ratio(
     weights,
     mean_returns,
     cov_matrix,
-    risk_free_rate
+    risk_free_rate=config.RISK_FREE_RATE
 ):
 
     p_return = portfolio_return(
@@ -42,8 +43,8 @@ def negative_sharpe_ratio(
 def sharpe_optimization(
     mean_returns,
     cov_matrix,
-    risk_free_rate=0.02,
-    max_weight=0.35
+    risk_free_rate=config.RISK_FREE_RATE,
+    max_weight=config.MAX_WEIGHT
 ):
 
     n_assets = len(mean_returns)

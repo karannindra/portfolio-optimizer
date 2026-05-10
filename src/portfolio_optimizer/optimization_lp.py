@@ -1,7 +1,8 @@
 from scipy.optimize import linprog
 import numpy as np
+from portfolio_optimizer import config
 
-def baseline_lp(mean_returns, max_weight=0.35):
+def baseline_lp(mean_returns, max_weight=config.MAX_WEIGHT):
 
     n_assets = len(mean_returns)
 
@@ -34,8 +35,8 @@ def baseline_lp(mean_returns, max_weight=0.35):
 def risk_constrained_lp(
     mean_returns,
     risk,
-    risk_limit=0.18,
-    max_weight=0.35
+    risk_limit=config.RISK_LIMIT,
+    max_weight=config.MAX_WEIGHT
 ):
 
     n_assets = len(mean_returns)

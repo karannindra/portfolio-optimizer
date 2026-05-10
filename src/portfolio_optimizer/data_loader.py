@@ -1,17 +1,18 @@
 import yfinance as yf
 import pandas as pd
 import numpy as np
+from portfolio_optimizer import config
 
 
-def download_prices(tickers, start_date, end_date):
+def download_prices():
     """
     Download adjusted closing prices for a list of tickers.
     """
 
     data = yf.download(
-        tickers,
-        start=start_date,
-        end=end_date,
+        config.TICKERS,
+        start=config.START_DATE,
+        end=config.END_DATE,
         auto_adjust=False
     )["Close"]
 
