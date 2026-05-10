@@ -25,3 +25,9 @@ def compute_returns(price_data):
     risk = returns.std() * np.sqrt(252)
 
     return returns, mean_returns, risk
+
+def compute_covariance_matrix(returns):
+
+    cov_matrix = returns.cov() * 252
+
+    return cov_matrix

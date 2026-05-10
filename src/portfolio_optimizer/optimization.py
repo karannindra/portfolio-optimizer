@@ -180,3 +180,9 @@ def milp_rebalancing(
         traded,
         portfolio_return
     )
+
+def portfolio_risk(weights, cov_matrix):
+
+    return np.sqrt(
+        weights.T @ cov_matrix @ weights
+    )
